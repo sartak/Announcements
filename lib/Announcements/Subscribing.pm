@@ -10,7 +10,7 @@ my $canonicalize_announcer = sub {
     }
 
     if ($announcer->does('Announcements::Announcing')) {
-        return $announcer->announcer;
+        return $announcer->_announcer;
     }
 
     confess "Not a valid announcer: $announcer";
