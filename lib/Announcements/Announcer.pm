@@ -25,7 +25,7 @@ sub announce {
     my $announcement = shift;
 
     $announcement->isa('Announcements::Announcement')
-        or confess "announce must be passed only an instanceof Announcements::Announcement";
+        or confess "announce must be passed only an instance of Announcements::Announcement";
 
     for my $subscription ($self->subscriptions) {
         $subscription->send($announcement);
