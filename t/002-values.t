@@ -60,7 +60,7 @@ use warnings;
     sub BUILD {
         my $self = shift;
         use Announcements::Subscription;
-        $self->switch->_announcer->add_subscription(
+        $self->switch->add_subscription(
             Announcements::Subscription->new(
                 criterion => 'Announcements::Announcement::ChangeValue',
                 action    => sub {

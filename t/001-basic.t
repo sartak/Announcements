@@ -33,7 +33,7 @@ my $subscription = Announcements::Subscription->new(
     },
 );
 
-$nuke->_announcer->add_subscription($subscription);
+$nuke->add_subscription($subscription);
 
 $nuke->push;
 is($inner_subscription, $subscription, 'same subscription object');
