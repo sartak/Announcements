@@ -16,12 +16,13 @@ has _subscriptions => (
 sub announce {
     my $self         = shift;
     my $announcement = shift;
+    my $announcer    = shift;
 
     $announcement->isa('Announcements::Announcement')
         or confess "announce must be passed only an instance of Announcements::Announcement";
 
     for my $subscription ($self->subscriptions) {
-        $subscription->send($announcement);
+        $subscription->send($announcement, $announcer);
     }
 }
 

@@ -16,11 +16,13 @@ has action => (
 sub send {
     my $self         = shift;
     my $announcement = shift;
+    my $announcer    = shift;
 
-    return unless $self->matches($announcement);
+    return unless $self->matches($announcement, $announcer);
 
     $self->action->(
         $announcement,
+        $announcer,
         $self,
     );
 }
