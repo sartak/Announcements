@@ -2,7 +2,7 @@ package Announcements::Announcing;
 use Moose::Role;
 use Announcements::Announcer;
 
-has announcer => (
+has _announcer => (
     is       => 'ro',
     isa      => 'Announcements::Announcer',
     lazy     => 1,
