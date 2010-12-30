@@ -15,7 +15,8 @@ has _subscriptions => (
     default => sub { [] },
     lazy    => 1,
     handles => {
-        subscriptions => 'elements',
+        subscriptions    => 'elements',
+        add_subscription => 'push',
     },
 );
 
