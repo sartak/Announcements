@@ -25,7 +25,7 @@ sub subscribe {
 
     $args{announcer} = $canonicalize_announcer->($args{announcer});
 
-    my $subscription = Announcements::Subscription->new(%args);
+    my $subscription = $args{subscription} || Announcements::Subscription->new(%args);
 
     $args{announcer}->add_subscription($subscription);
 
