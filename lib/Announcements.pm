@@ -1,5 +1,7 @@
 package Announcements;
 
+our $VERSION = '0.01';
+
 1;
 
 __END__
@@ -17,6 +19,17 @@ L<http://www.cincomsmalltalk.com/userblogs/vbykov/blogView?searchCategory=Announ
 L<http://www.bofh.org.uk/2008/06/29/announcing-announcements-for-ruby>
 
 L<https://github.com/pdcawley/announcements>
+
+=head1 AUTHOR
+
+Shawn M Moore, C<sartak@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2010 M Moore.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
 
 =cut
 
