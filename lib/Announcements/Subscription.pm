@@ -1,12 +1,6 @@
 package Announcements::Subscription;
 use Moose;
 
-has announcer => (
-    is       => 'ro',
-    isa      => 'Announcements::Announcer',
-    required => 1,
-);
-
 has criterion => (
     is       => 'ro',
     isa      => 'Str',
