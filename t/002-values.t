@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 {
-    package Announcements::Announcement::ChangeValue;
+    package Announcement::ChangedValue;
     use Moose;
     extends 'Announcements::Announcement';
 
@@ -27,7 +27,7 @@ use warnings;
         trigger => sub {
             my ($self, $new, $old) = @_;
             $self->announce(
-                Announcements::Announcement::ChangeValue->new(
+                Announcement::ChangedValue->new(
                     old_value => $old,
                     new_value => $new,
                 ),
@@ -62,7 +62,7 @@ use warnings;
         use Announcements::Subscription;
         $self->switch->add_subscription(
             Announcements::Subscription->new(
-                criterion => 'Announcements::Announcement::ChangeValue',
+                criterion => 'Announcement::ChangedValue',
                 action    => sub {
                     my $announcement = shift;
                     $self->is_lit($announcement->new_value eq 'up');

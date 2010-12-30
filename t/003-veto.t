@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 {
-    package Announcements::Announcement::AboutToFlip;
+    package Announcement::AboutToFlip;
     use Moose;
     extends 'Announcements::Announcement';
 
@@ -32,7 +32,7 @@ use warnings;
     sub flip_switch {
         my $self = shift;
 
-        my $announcement = Announcements::Announcement::AboutToFlip->new;
+        my $announcement = Announcement::AboutToFlip->new;
         $self->announce($announcement);
         return if $announcement->is_vetoed;
 
@@ -49,7 +49,7 @@ ok($light->is_lit);
 use Announcements::Subscription;
 $light->add_subscription(
     Announcements::Subscription->new(
-        criterion => 'Announcements::Announcement::AboutToFlip',
+        criterion => 'Announcement::AboutToFlip',
         action    => sub { },
     ),
 );
@@ -59,7 +59,7 @@ ok(!$light->is_lit);
 
 $light->add_subscription(
     Announcements::Subscription->new(
-        criterion => 'Announcements::Announcement::AboutToFlip',
+        criterion => 'Announcement::AboutToFlip',
         action    => sub { shift->veto },
     ),
 );
