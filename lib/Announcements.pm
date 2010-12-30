@@ -12,6 +12,8 @@ Announcements - communicate across the object network
 
 =head1 SEE ALSO
 
+L<http://sartak.org/talks/yapc-na-2011/announcing-announcements/>
+
 L<http://www.cincomsmalltalk.com/userblogs/vbykov/blogView?entry=3310034894>
 
 L<http://www.cincomsmalltalk.com/userblogs/vbykov/blogView?searchCategory=Announcements%20Framework>
