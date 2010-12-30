@@ -7,12 +7,7 @@ has _announcer => (
     isa      => 'Announcements::Announcer',
     lazy     => 1,
     required => 1,
-    default  => sub {
-        my $self = shift;
-        Announcements::Announcer->new(
-            owner => $self,
-        ),
-    },
+    default  => sub { Announcements::Announcer->new },
     handles => ['announce'],
 );
 
