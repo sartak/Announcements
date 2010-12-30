@@ -1,5 +1,6 @@
 package Announcements::Announcing;
 use Moose::Role;
+use Announcements::Announcer;
 
 has announcer => (
     is       => 'ro',
