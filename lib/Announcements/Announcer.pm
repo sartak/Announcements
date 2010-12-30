@@ -28,9 +28,7 @@ sub announce {
         or confess "announce must be passed only an instanceof Announcements::Announcement";
 
     for my $subscription ($self->subscriptions) {
-        $subscription->send(
-            announcement => $announcement,
-        );
+        $subscription->send($announcement);
     }
 }
 
