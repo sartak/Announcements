@@ -5,12 +5,6 @@ use warnings;
 our $ANNOUNCEMENT;
 
 {
-    package Announcements::Announcement::Pushed;
-    use Moose;
-    extends 'Announcements::Announcement';
-}
-
-{
     package Button;
     use Moose;
     with 'Announcements::Announcing';
@@ -18,42 +12,32 @@ our $ANNOUNCEMENT;
     sub push {
         my $self = shift;
 
-        $main::ANNOUNCEMENT = Announcements::Announcement::Pushed->new;
+        use Announcements::Announcement;
+        $main::ANNOUNCEMENT = Announcements::Announcement->new;
         $self->announce($ANNOUNCEMENT);
     }
 }
 
-{
-    package Spy;
-    use Moose;
-    with 'Announcements::Subscribing';
-}
-
 my $nuke = Button->new;
-my $bond = Spy->new;
 
-my ($inner_self, $inner_announcement, $inner_subscription);
+my ($inner_announcement, $inner_subscription);
 
-my $subscription = $bond->subscribe(
-    announcer => $nuke,
-    criterion => 'Announcements::Announcement::Pushed',
+use Announcements::Subscription;
+my $subscription = Announcements::Subscription->new(
+    criterion => 'Announcements::Announcement',
     action    => sub {
-        ($inner_self, $inner_announcement, $inner_subscription) = @_;
-
-        my $self = shift;
+        ($inner_announcement, $inner_subscription) = @_;
         my $announcement = shift;
 
-        isa_ok $announcement, 'Announcements::Announcement::Pushed';
+        isa_ok $announcement, 'Announcements::Announcement';
     },
 );
 
+$nuke->_announcer->add_subscription($subscription);
+
 $nuke->push;
-is($inner_self, $bond, 'same subscriber object');
 is($inner_subscription, $subscription, 'same subscription object');
 is($inner_announcement, $ANNOUNCEMENT, 'same announcement object');
-
-is($subscription->subscriber, $bond, 'subscription->subscriber');
-is($subscription->announcer, $nuke->announcer, 'subscription->announcer');
 
 done_testing;
 
