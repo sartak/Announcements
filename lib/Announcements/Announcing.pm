@@ -12,6 +12,7 @@ has announcer => (
             owner => $self,
         ),
     },
+    handles => ['announce'],
 );
 
 1;
