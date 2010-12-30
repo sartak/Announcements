@@ -7,12 +7,6 @@ has announcer => (
     required => 1,
 );
 
-has subscriber => (
-    is       => 'ro',
-    isa      => 'Object',
-    required => 1,
-);
-
 has criterion => (
     is       => 'ro',
     isa      => 'Str',
@@ -32,7 +26,6 @@ sub send {
     return unless $self->matches($announcement);
 
     $self->action->(
-        $self->subscriber,
         $announcement,
         $self,
     );
