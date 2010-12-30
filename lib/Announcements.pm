@@ -12,6 +12,8 @@ Announcements - communicate across the object network
 
 L<http://www.cincomsmalltalk.com/userblogs/vbykov/blogView?entry=3310034894>
 
+L<http://www.cincomsmalltalk.com/userblogs/vbykov/blogView?searchCategory=Announcements Framework>
+
 L<http://www.bofh.org.uk/2008/06/29/announcing-announcements-for-ruby>
 
 L<https://github.com/pdcawley/announcements>
