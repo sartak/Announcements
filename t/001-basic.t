@@ -30,7 +30,7 @@ my $nuke = Button->new;
 my $bond = Spy->new;
 
 $bond->subscribe(
-    from      => $nuke,
+    announcer => $nuke,
     criterion => 'Announcements::Announcement::Pushed',
     action    => sub {
         my $self = shift;
