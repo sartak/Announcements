@@ -18,6 +18,9 @@ sub announce {
     my $announcement = shift;
     my $announcer    = shift;
 
+    # autovivify an announcement class name
+    $announcement = $announcement->new if !ref($announcement);
+
     $announcement->isa('Announcements::Announcement')
         or confess "announce must be passed only an instance of Announcements::Announcement";
 
