@@ -1,4 +1,4 @@
-package Announcements::Announcer;
+package Announcements::SubscriptionRegistry;
 use Moose;
 
 has _subscriptions => (
