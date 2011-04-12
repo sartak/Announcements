@@ -2,9 +2,10 @@ package Announcements::Subscription;
 use Moose;
 
 has criterion => (
-    is       => 'ro',
-    isa      => 'Str',
-    required => 1,
+    is            => 'ro',
+    isa           => 'Str',
+    required      => 1,
+    documentation => 'a class or role name to filter announcements',
 );
 
 has action => (
