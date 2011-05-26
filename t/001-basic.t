@@ -3,6 +3,9 @@ use strict;
 use warnings;
 
 {
+    package PushedButton;
+    use Moose;
+
     package Button;
     use Moose;
     with 'Announcements::Announcing';
@@ -10,7 +13,7 @@ use warnings;
     sub push {
         my $self = shift;
 
-        $self->announce(Moose::Object->new);
+        $self->announce(PushedButton->new);
     }
 }
 
@@ -19,12 +22,12 @@ my $nuke = Button->new;
 my ($inner_announcement, $inner_announcer, $inner_subscription);
 
 my $subscription = Announcements::Subscription->new(
-    criterion => 'Moose::Object',
+    criterion => 'PushedButton',
     action    => sub {
         ($inner_announcement, $inner_announcer, $inner_subscription) = @_;
         my $announcement = shift;
 
-        isa_ok $announcement, 'Moose::Object';
+        isa_ok $announcement, 'PushedButton';
     },
 );
 
