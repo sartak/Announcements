@@ -5,7 +5,6 @@ use warnings;
 {
     package Announcement::AboutToFlip;
     use Moose;
-    extends 'Announcements::Announcement';
 
     has is_vetoed => (
         is      => 'rw',

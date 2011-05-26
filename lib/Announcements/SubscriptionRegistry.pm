@@ -1,6 +1,5 @@
 package Announcements::SubscriptionRegistry;
 use Moose;
-use Announcements::Announcement;
 use Announcements::Subscription;
 
 has _subscriptions => (
@@ -22,9 +21,6 @@ sub announce {
 
     # autovivify an announcement class name
     $announcement = $announcement->new if !ref($announcement);
-
-    $announcement->isa('Announcements::Announcement')
-        or confess "announce must be passed only an instance of Announcements::Announcement";
 
     for my $subscription ($self->subscriptions) {
         $subscription->send($announcement, $announcer);

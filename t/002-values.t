@@ -5,7 +5,6 @@ use warnings;
 {
     package Announcement::ChangedValue;
     use Moose;
-    extends 'Announcements::Announcement';
 
     has old_value => (
         is => 'ro',

@@ -10,7 +10,7 @@ use warnings;
     sub push {
         my $self = shift;
 
-        $self->announce(Announcements::Announcement->new);
+        $self->announce(Moose::Object->new);
     }
 }
 
@@ -20,12 +20,12 @@ my ($inner_announcement, $inner_announcer, $inner_subscription);
 
 use Announcements::Subscription;
 my $subscription = Announcements::Subscription->new(
-    criterion => 'Announcements::Announcement',
+    criterion => 'Moose::Object',
     action    => sub {
         ($inner_announcement, $inner_announcer, $inner_subscription) = @_;
         my $announcement = shift;
 
-        isa_ok $announcement, 'Announcements::Announcement';
+        isa_ok $announcement, 'Moose::Object';
     },
 );
 
