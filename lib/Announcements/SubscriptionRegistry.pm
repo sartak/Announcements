@@ -1,5 +1,7 @@
 package Announcements::SubscriptionRegistry;
 use Moose;
+use Announcements::Announcement;
+use Announcements::Subscription;
 
 has _subscriptions => (
     traits  => ['Array'],

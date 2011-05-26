@@ -59,7 +59,6 @@ use warnings;
 
     sub BUILD {
         my $self = shift;
-        use Announcements::Subscription;
         $self->switch->add_subscription(
             Announcements::Subscription->new(
                 criterion => 'Announcement::ChangedValue',

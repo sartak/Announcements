@@ -46,7 +46,6 @@ ok(!$light->is_lit);
 $light->flip_switch;
 ok($light->is_lit);
 
-use Announcements::Subscription;
 $light->add_subscription(
     Announcements::Subscription->new(
         criterion => 'Announcement::AboutToFlip',

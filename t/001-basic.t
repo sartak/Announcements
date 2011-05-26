@@ -12,7 +12,6 @@ our $ANNOUNCEMENT;
     sub push {
         my $self = shift;
 
-        use Announcements::Announcement;
         $main::ANNOUNCEMENT = Announcements::Announcement->new;
         $self->announce($ANNOUNCEMENT);
     }
