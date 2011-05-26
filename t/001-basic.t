@@ -18,7 +18,6 @@ my $nuke = Button->new;
 
 my ($inner_announcement, $inner_announcer, $inner_subscription);
 
-use Announcements::Subscription;
 my $subscription = Announcements::Subscription->new(
     criterion => 'Moose::Object',
     action    => sub {

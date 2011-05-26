@@ -59,13 +59,11 @@ use warnings;
     sub BUILD {
         my $self = shift;
         $self->switch->add_subscription(
-            Announcements::Subscription->new(
-                criterion => 'Announcement::ChangedValue',
-                action    => sub {
-                    my $announcement = shift;
-                    $self->is_lit($announcement->new_value eq 'up');
-                },
-            ),
+            criterion => 'Announcement::ChangedValue',
+            action    => sub {
+                my $announcement = shift;
+                $self->is_lit($announcement->new_value eq 'up');
+            },
         );
     }
 }

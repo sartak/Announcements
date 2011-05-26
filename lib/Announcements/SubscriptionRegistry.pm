@@ -9,17 +9,29 @@ has _subscriptions => (
     default => sub { [] },
     lazy    => 1,
     handles => {
-        subscriptions    => 'elements',
-        add_subscription => 'push',
+        subscriptions     => 'elements',
+        _add_subscription => 'push',
     },
 );
+
+sub add_subscription {
+    my $self = shift;
+    my $subscription = $_[0];
+
+    # autoreify add_subscription(foo => 1, bar => 2)
+    if (!ref($subscription)) {
+        $subscription = Announcements::Subscription->new(@_);
+    }
+
+    $self->_add_subscription($subscription);
+}
 
 sub announce {
     my $self         = shift;
     my $announcement = shift;
     my $announcer    = shift;
 
-    # autovivify an announcement class name
+    # autoreify an announcement class name
     $announcement = $announcement->new if !ref($announcement);
 
     for my $subscription ($self->subscriptions) {

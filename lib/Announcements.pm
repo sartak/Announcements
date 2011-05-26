@@ -85,13 +85,11 @@ Finally we set up an observer that flips the C<has_ever_teleported> bit
 upon teleport.
 
     $character->add_subscription(
-        Announcements::Subscription->new(
-            criterion => 'NetHack::Announcement::Teleporting',
-            action    => sub {
-                my ($announcement, $character) = @_;
-                $character->has_ever_teleported(1);
-            },
-        )
+        criterion => 'NetHack::Announcement::Teleporting',
+        action    => sub {
+            my ($announcement, $character) = @_;
+            $character->has_ever_teleported(1);
+        },
     );
 
 =head2 Communication
