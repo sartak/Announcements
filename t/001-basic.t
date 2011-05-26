@@ -2,8 +2,6 @@ use Test::More;
 use strict;
 use warnings;
 
-our $ANNOUNCEMENT;
-
 {
     package Button;
     use Moose;
@@ -12,8 +10,7 @@ our $ANNOUNCEMENT;
     sub push {
         my $self = shift;
 
-        $main::ANNOUNCEMENT = Announcements::Announcement->new;
-        $self->announce($ANNOUNCEMENT);
+        $self->announce(Announcements::Announcement->new);
     }
 }
 
@@ -37,7 +34,6 @@ $nuke->add_subscription($subscription);
 $nuke->push;
 is($inner_subscription, $subscription, 'same subscription object');
 is($inner_announcer,    $nuke,         'same announcer object');
-is($inner_announcement, $ANNOUNCEMENT, 'same announcement object');
 
 done_testing;
 
