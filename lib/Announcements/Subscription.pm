@@ -39,3 +39,11 @@ sub matches {
 
 1;
 
+__END__
+
+=head1 NAME
+
+Announcements::Subscription - a subscription to a class of announcements
+
+=cut
+

@@ -19,3 +19,11 @@ sub announce {
 
 1;
 
+__END__
+
+=head1 NAME
+
+Announcements::Announcing - role for objects which announce events
+
+=cut
+

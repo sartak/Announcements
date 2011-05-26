@@ -41,3 +41,11 @@ sub announce {
 
 1;
 
+__END__
+
+=head1 NAME
+
+Announcements::SubscriptionRegistry - a registry for an object's subscriptions
+
+=cut
+
