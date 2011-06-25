@@ -46,16 +46,16 @@ $light->flip_switch;
 ok($light->is_lit);
 
 $light->add_subscription(
-    criterion => 'Announcement::AboutToFlip',
-    action    => sub { },
+    when   => 'Announcement::AboutToFlip',
+    action => sub { },
 );
 
 $light->flip_switch;
 ok(!$light->is_lit);
 
 $light->add_subscription(
-    criterion => 'Announcement::AboutToFlip',
-    action    => sub { shift->veto },
+    when   => 'Announcement::AboutToFlip',
+    action => sub { shift->veto },
 );
 
 $light->flip_switch;

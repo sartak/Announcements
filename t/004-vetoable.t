@@ -52,16 +52,16 @@ $light->flip_switch;
 ok($light->is_lit);
 
 $light->add_subscription(
-    criterion => 'Announcement::Vetoable',
-    action    => sub { },
+    when   => 'Announcement::Vetoable',
+    action => sub { },
 );
 
 $light->flip_switch;
 ok(!$light->is_lit);
 
 $light->add_subscription(
-    criterion => 'Announcement::Vetoable',
-    action    => sub { shift->veto },
+    when   => 'Announcement::Vetoable',
+    action => sub { shift->veto },
 );
 
 $light->flip_switch;

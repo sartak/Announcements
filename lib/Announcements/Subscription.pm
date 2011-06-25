@@ -1,7 +1,7 @@
 package Announcements::Subscription;
 use Moose;
 
-has criterion => (
+has when => (
     is            => 'ro',
     isa           => 'Str',
     required      => 1,
@@ -34,7 +34,7 @@ sub matches {
 
     # in perl 5.10+, ->DOES defaults to just ->isa. but Moose enhances ->DOES
     # (and provides that default on 5.8) to include ->does_role
-    return $announcement->DOES($self->criterion);
+    return $announcement->DOES($self->when);
 }
 
 1;
