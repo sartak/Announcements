@@ -8,7 +8,7 @@ has when => (
     documentation => 'a class or role name to filter announcements',
 );
 
-has action => (
+has do => (
     is       => 'ro',
     isa      => 'CodeRef',
     required => 1,
@@ -21,7 +21,7 @@ sub send {
 
     return unless $self->matches($announcement, $announcer);
 
-    $self->action->(
+    $self->do->(
         $announcement,
         $announcer,
         $self,

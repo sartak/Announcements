@@ -85,8 +85,8 @@ Finally we set up an observer that flips the C<has_ever_teleported> bit
 upon teleport.
 
     $character->add_subscription(
-        when   => 'NetHack::Announcement::Teleporting',
-        action => sub {
+        when => 'NetHack::Announcement::Teleporting',
+        do   => sub {
             my ($announcement, $character) = @_;
             $character->has_ever_teleported(1);
         },
