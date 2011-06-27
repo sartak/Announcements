@@ -21,6 +21,7 @@ use warnings;
 {
     package Announcement::AboutToFlip;
     use Moose;
+    extends 'Announcements::Announcement';
     with 'Announcement::Vetoable';
 }
 

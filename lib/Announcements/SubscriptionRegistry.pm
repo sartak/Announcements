@@ -38,8 +38,7 @@ sub announce {
     my $announcement = shift;
     my $announcer    = shift;
 
-    # autoreify an announcement class name
-    $announcement = $announcement->new if !ref($announcement);
+    $announcement = $announcement->as_announcement;
 
     for my $subscription ($self->subscriptions) {
         $subscription->send($announcement, $announcer);

@@ -6,6 +6,7 @@ use Announcements::Subscription;
 {
     package PushedButton;
     use Moose;
+    extends 'Announcements::Announcement';
     with 'Announcements::Announcing';
 
     sub push {

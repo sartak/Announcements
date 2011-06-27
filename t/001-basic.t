@@ -5,6 +5,7 @@ use warnings;
 {
     package PushedButton;
     use Moose;
+    extends 'Announcements::Announcement';
 
     package Button;
     use Moose;
