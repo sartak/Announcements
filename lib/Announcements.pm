@@ -120,7 +120,7 @@ that blocks teleportation?" logic.
     has new_y     => (is => 'rw', isa => 'Num', default => sub { rand() });
 
 This announcement class permits observers to select the destination
-coordinates. If none of the observers select coordinates, then
+coordinates. If none of the observers selects coordinates, then
 random coordinates (like our original C<teleport> method) will be used.
 
 Our observer in this case is a level, which forbids teleports. We can
