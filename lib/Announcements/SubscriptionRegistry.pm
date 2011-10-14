@@ -25,6 +25,8 @@ sub add_subscription {
         $subscription = Announcements::Subscription->new(@_);
     }
 
+    return $subscription if $subscription->_registry && $subscription->_registry == $self;
+
     $subscription->_registry($self);
 
     $self->_add_subscription($subscription);
@@ -54,6 +56,7 @@ sub unsubscribe {
     );
     $subscription->_clear_registry;
 }
+
 1;
 
 __END__
