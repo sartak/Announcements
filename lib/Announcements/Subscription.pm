@@ -14,6 +14,15 @@ has do => (
     required => 1,
 );
 
+has _registry => (
+    is => 'rw',
+    isa => 'Announcements::SubscriptionRegistry',
+    weak_ref => 1,
+    clearer => '_clear_registry',
+    init_arg => undef,
+);
+
+
 sub send {
     my $self         = shift;
     my $announcement = shift;
@@ -35,6 +44,11 @@ sub matches {
     # in perl 5.10+, ->DOES defaults to just ->isa. but Moose enhances ->DOES
     # (and provides that default on 5.8) to include ->does_role
     return $announcement->DOES($self->when);
+}
+
+sub unsubscribe {
+    my $self = shift;
+    $self->_registry->unsubscribe($self);
 }
 
 1;
