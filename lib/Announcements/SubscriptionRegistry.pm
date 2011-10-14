@@ -9,8 +9,10 @@ has _subscriptions => (
     default => sub { [] },
     lazy    => 1,
     handles => {
-        subscriptions     => 'elements',
-        _add_subscription => 'push',
+        subscriptions          => 'elements',
+        _add_subscription      => 'push',
+        _delete_subscription   => 'delete',
+        _index_of_subscription => 'first_index',
     },
 );
 
@@ -23,7 +25,10 @@ sub add_subscription {
         $subscription = Announcements::Subscription->new(@_);
     }
 
+    $subscription->_registry($self);
+
     $self->_add_subscription($subscription);
+    return $subscription;
 }
 
 sub announce {
@@ -39,6 +44,16 @@ sub announce {
     }
 }
 
+sub unsubscribe {
+    my $self = shift;
+    my $subscription = shift;
+    $self->_delete_subscription(
+        $self->_index_of_subscription(sub {
+            $_ == $subscription;
+        })
+    );
+    $subscription->_clear_registry;
+}
 1;
 
 __END__
