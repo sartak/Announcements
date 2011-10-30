@@ -1,0 +1,13 @@
+Revision history for Announcements
+
+0.02  2011-10-30
+    - $subscription->unsubscribe (Piers Cawley)
+    - forbid one subscription from in its registry more than once (Piers Cawley)
+    - rename 'criterion' to 'when'
+    - rename 'action' to 'do'
+    - reinstate Announcements::Announcement superclass to remove an
+      icky bit from the otherwise pretty clean ftamework
+
+0.01  2011-05-26
+    First version, for my YAPC::NA talk!
+
